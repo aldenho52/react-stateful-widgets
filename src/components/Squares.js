@@ -36,7 +36,11 @@ export default function Squares() {
     // Right-click and "inspect element" on the square to see its effect.
 
   const markActive = id => {
-    id == activeSquare ? useState(null) : setActiveSquare(id)
+    if (id !== activeSquare) {
+      setActiveSquare(id)
+    } else {
+      setActiveSquare(null)
+    }
   }; 
     // This is a helper used inside an _inlined_ click handler (see below).
     // Set the id argument to become the active id in state
